@@ -50,17 +50,20 @@ public class Obf {
     private final List<Transformer> transformers = new ArrayList<>();
     private final List<ClassNode> newClasses = new ArrayList<>();
 
+    private static Obf instance;
+
     public Obf(File inputFile, File outputFile) throws IOException {
+        instance = this;
         random = new Random();
 
-        transformers.add(new ConstantTransformer(this));
-        transformers.add(new StringTransformer(this));
-        transformers.add(new JunkFieldTransformer(this));
-        transformers.add(new AccessTransformer(this));
-        transformers.add(new ShuffleTransformer(this));
-        transformers.add(new ToStringTransformer(this));
-        transformers.add(new SourceFileTransformer(this));
-        transformers.add(new BeansConstructorTransformer(this));
+        transformers.add(new ConstantTransformer());
+        transformers.add(new StringTransformer());
+        transformers.add(new JunkFieldTransformer());
+        transformers.add(new AccessTransformer());
+        transformers.add(new ShuffleTransformer());
+        transformers.add(new ToStringTransformer());
+        transformers.add(new SourceFileTransformer());
+        transformers.add(new BeansConstructorTransformer());
 
         JarFile inputJar = new JarFile(inputFile);
 
@@ -111,6 +114,10 @@ public class Obf {
                 out.write(writer.toByteArray());
             }
         }
+    }
+
+    public static Obf getInstance() {
+        return instance;
     }
 
     public Random getRandom() {

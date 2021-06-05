@@ -31,11 +31,10 @@ import java.util.Random;
 
 public abstract class Transformer {
 
-    protected final Obf obf;
+    protected final Obf obf = Obf.getInstance();
     protected final Random random;
 
-    public Transformer(Obf obf) {
-        this.obf = obf;
+    public Transformer() {
         this.random = obf.getRandom();
     }
 

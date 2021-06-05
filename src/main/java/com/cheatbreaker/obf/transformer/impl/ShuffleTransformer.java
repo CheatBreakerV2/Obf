@@ -24,7 +24,6 @@
 
 package com.cheatbreaker.obf.transformer.impl;
 
-import com.cheatbreaker.obf.Obf;
 import com.cheatbreaker.obf.transformer.Transformer;
 import org.objectweb.asm.tree.ClassNode;
 

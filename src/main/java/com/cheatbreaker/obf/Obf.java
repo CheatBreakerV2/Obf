@@ -25,6 +25,7 @@
 package com.cheatbreaker.obf;
 
 import com.cheatbreaker.obf.transformer.*;
+import com.cheatbreaker.obf.transformer.impl.*;
 import com.cheatbreaker.obf.utils.StreamUtils;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;

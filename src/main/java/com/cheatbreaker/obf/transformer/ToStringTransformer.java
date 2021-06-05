@@ -14,9 +14,6 @@ public class ToStringTransformer extends Transformer {
 
     @Override
     public void visit(ClassNode classNode) {
-        classNode.methods.forEach(methodNode -> {
-            if (methodNode.name.equals("toString"))
-                classNode.methods.remove(methodNode);
-        });
+        classNode.methods.removeIf(next -> next.name.equals("toString"));
     }
 }
